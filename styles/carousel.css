@@ -1,0 +1,86 @@
+.carousel-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Centra el carrusel */
+}
+
+.product-card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 15px; /* Ajusta este valor para cambiar la separación de los puntos */
+  max-width: 350px; /* Ajusta el tamaño máximo para que se vean más juntos */
+}
+
+.add-to-cart {
+  background-color: #6B21A8; /* Color morado */
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 9999px;
+}
+
+.add-to-cart svg {
+  width: 24px;
+  height: 24px;
+}
+
+.product-details p {
+  margin: 0;
+}
+
+.product-details .text-green-500 {
+  color: #10B981; /* Verde */
+}
+
+.product-details .text-yellow-500 {
+  color: #F59E0B; /* Amarillo */
+}
+
+.product-details .text-lg {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.product-details .text-xl {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  display: none; /* Oculta las flechitas */
+}
+
+/* slick-dots custom styles */
+.custom-dots li button:before {
+  color: lightblue; /* Color para los puntos inactivos */
+}
+
+.custom-dots li.slick-active button:before {
+  color: blue; /* Color para el punto activo */
+}
+
+.custom-dots {
+  margin-top: 0px; /* Ajusta la separación superior de los puntos */
+  margin-bottom: 10px;
+}
+
+/* Hover border for product items */
+.hover\\:border {
+  border-width: 2px;
+}
+
+/* Padding horizontal al carrusel */
+.slick-list {
+  padding: 0 10px; /* Ajusta el valor según lo necesites */
+}
+
+.no-drag {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
