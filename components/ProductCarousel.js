@@ -1,15 +1,18 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import "../styles/carousel.css";
+import { useCart } from './cart/CartContext';  // Ajuste de la ruta de importación
 
 const ProductCarousel = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   let isDragging = false;
+
+  const { addToCart } = useCart();  // Uso del contexto del carrito
 
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
@@ -40,7 +43,7 @@ const ProductCarousel = () => {
         style={{
           width: "12px",
           height: "12px",
-          background: "#00bcd4",
+          background: "#031530",
           borderRadius: "50%",
         }}
       ></div>
@@ -56,6 +59,7 @@ const ProductCarousel = () => {
 
   const handleAddToCart = (product, e) => {
     e.stopPropagation();
+    addToCart(product);  // Añadir producto al carrito
     console.log("Botón 'AÑADIR AL CARRITO' clickeado.", product);
   };
 
@@ -110,7 +114,7 @@ const ProductCarousel = () => {
               </div>
               <p className="text-lg font-semibold">{formatPrice(product.price)}</p>
               <button
-                className="bg-purple-500 text-white rounded-full px-4 py-2 mt-4 text-sm"
+                className="bg-blue-900 text-white rounded-full px-4 py-2 mt-4 text-sm"
                 onMouseUp={(e) => e.stopPropagation()}
                 onClick={(e) => handleAddToCart(product, e)}
               >

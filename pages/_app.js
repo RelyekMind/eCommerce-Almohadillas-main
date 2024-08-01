@@ -1,12 +1,14 @@
+'use client';
+
 import '../styles/globals.css';
-import '../styles/productDetail.css';
-
-import Header from '../components/Header';
-import { useRouter } from 'next/router';
-
+import { CartProvider } from '../components/cart/CartContext';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <CartProvider>
+      <Component {...pageProps} />
+    </CartProvider>
+  );
 }
 
 export default MyApp;

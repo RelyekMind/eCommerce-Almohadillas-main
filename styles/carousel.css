@@ -65,6 +65,8 @@
 .custom-dots {
   margin-top: 0px; /* Ajusta la separación superior de los puntos */
   margin-bottom: 10px;
+  font-size: 12px;
+  color: #031530;
 }
 
 /* Hover border for product items */

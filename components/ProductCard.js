@@ -1,10 +1,13 @@
 // components/ProductCard.js
 import React from 'react';
 import Link from 'next/link';
+import { useCart } from './cart/CartContext';
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+
   const formatPrice = (price) => {
-    return '$' + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return new Intl.NumberFormat('es-CL').format(price);
   };
 
   return (
@@ -17,10 +20,11 @@ const ProductCard = ({ product }) => {
           {product.title}
         </Link>
       </h3>
-      <p className="text-gray-700">{formatPrice(product.price)}</p>
+      <p className="text-gray-700">${formatPrice(product.price)}</p>
       <p className={product.stock > 0 ? 'text-green-500' : 'text-red-500'}>
         {product.stock > 0 ? 'Disponible' : 'No disponible'}
       </p>
+      <button onClick={() => addToCart(product)} className="bg-blue-900 text-white rounded-full px-4 py-2 mt-4">Añadir al carrito</button>
     </div>
   );
 };
